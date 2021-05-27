@@ -52,8 +52,8 @@ class Scraper(models.Model):
     workers             = models.IntegerField(default=0)
     spiders             = models.ManyToManyField('ArticleSpider')
     crawler_set         = models.ForeignKey('CrawlerSet', on_delete=models.CASCADE, blank=True, null=True)
-    info_log            = models.TextField(blank=True, null=True)
-    error_log           = models.TextField(blank=True, null=True)
+    # info_log            = models.TextField(blank=True, null=True)
+    # error_log           = models.TextField(blank=True, null=True)
     time_finished       = models.TimeField(auto_now=False, auto_now_add=False, blank=True, null=True)
     is_finished         = models.BooleanField(default=False)
     terminated_process  = models.BooleanField(default=False)
@@ -218,5 +218,8 @@ class Links(models.Model):
 
     def __str__(self):
         return self.link
+
+    class Meta:
+        verbose_name_plural = "Links"
 
     
